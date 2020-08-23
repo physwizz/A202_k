@@ -21,8 +21,8 @@
 	initial0: initial-state {
 		PIN_OUT_SET_PULL(etc0-0, 1, LV1, DOWN);	/* AP_JTAG_TRST_N */
 		PIN_IN(gpa0-1, DOWN, LV1);  /* GYRO_INT */
-		PIN_IN(gpq0-1, DOWN, LV1);  /* NC */
 		PIN_IN(gpa2-7, DOWN, LV1);  /* NC */
+		PIN_IN(gpq0-1, DOWN, LV1);  /* NC */
 	};
 };
 
@@ -56,7 +56,7 @@
 	pinctrl-0 = <&initial2>;
 	pinctrl-1 = <&sleep2>;
 	initial2: initial-state {
-		PIN_IN(gpf3-3, DOWN, LV1);  /* NC */
+		PIN_IN(gpf3-4, NONE, LV1);	/* HW_REV3 */
 	};
 	sleep2: sleep-state {
 		PIN_SLP(gpf0-0, OUT0, NONE);	/* SD_0_CLK */
@@ -83,9 +83,7 @@
 		PIN_SLP(gpf3-0, INPUT, DOWN);	/* NC */
 		PIN_SLP(gpf3-1, INPUT, DOWN);	/* NC */
 		PIN_SLP(gpf3-2, INPUT, DOWN);	/* NC */
-		PIN_SLP(gpf3-3, INPUT, DOWN);	/* NC */
-		PIN_SLP(gpf3-4, INPUT, DOWN);	/* NC */
-		PIN_SLP(gpf3-5, INPUT, DOWN);	/* NC */
+		PIN_SLP(gpf3-4, INPUT, NONE);	/* HW_REV3 */
 	};
 };
 
@@ -95,35 +93,33 @@
 	pinctrl-0 = <&initial3>;
 	pinctrl-1 = <&sleep3>;
 	initial3: initial-state {
-		PIN_OUT_SET_PULL(gpp0-3, 0, LV1, DOWN);	/* MOT_LDO */
 		PIN_OUT_SET_PULL(gpp8-1, 1, LV1, NONE);	/* SENSOR_LDO_3p3_EN */
 		PIN_OUT_SET_PULL(gpg3-1, 1, LV1, NONE);	/* SENSOR_LDO_1P8_EN */
+		PIN_OUT_SET(gpg2-1, 1, LV1);			/*TSP_LDO_EN*/
+		PIN_OUT_SET_PULL(gpg0-2, 0, LV1, DOWN);	/* MOT_LDO */
+		PIN_OUT_SET_PULL(gpg1-7, 0, LV1, DOWN);	/* CAM_TORCH_EN */
 		PIN_OUT_SET_PULL(gpg2-7, 0, LV1, DOWN);	/* CAM_FLASH_EN */
-		PIN_OUT_SET_PULL(gpg0-1, 0, LV1, DOWN);	/* TORCH_SET */
+		PIN_IN(gpg2-3, NONE, LV1);	/* SUB_REV1 */
+		PIN_IN(gpg2-6, NONE, LV1);	/* SUB_REV2 */
 		PIN_IN(gpg3-7, NONE, LV1);	/* HW_REV0 */
 		PIN_IN(gpg4-0, NONE, LV1);	/* HW_REV1 */
-		PIN_IN(gpg4-1, DOWN, LV1);	/* NC */
-		PIN_IN(gpg3-6, NONE, LV1);	/* HW_REV2 */
-		PIN_IN(gpg1-3, NONE, LV1);	/* SUB_REV */
+		PIN_IN(gpg4-1, NONE, LV1);	/* HW_REV2 */
 	};
 	sleep3: sleep-state {
 
-		PIN_SLP(gpp0-3, OUT0, DOWN);	/* MOT_LDO */
+		PIN_SLP(gpp0-3, PREV, DOWN);	/* FM_LNA_EN */
 		PIN_SLP(gpp1-0, INPUT, NONE);	/* FG_I2C_SDA */
 		PIN_SLP(gpp1-1, INPUT, NONE);	/* FG_I2C_SCL */
 		PIN_SLP(gpp1-2, PREV, NONE);	/* IF_PMIC_I2C_SDA */
 		PIN_SLP(gpp1-3, PREV, NONE);	/* IF_PMIC_I2C_SCL */
-
-		PIN_SLP(gpp2-0, INPUT, NONE);	/* LCD_BL_SDA_1P8 */
-		PIN_SLP(gpp2-1, INPUT, NONE);	/* LCD_BL_SCL_1P8 */
 
 		PIN_SLP(gpp3-0, INPUT, NONE);	/* SPK_AMP_I2C_SDA */
 		PIN_SLP(gpp3-1, INPUT, NONE);	/* SPK_AMP_I2C_SCL */
 
 		PIN_SLP(gpp4-0, INPUT, NONE);	/* TSP_I2C_SDA */
 		PIN_SLP(gpp4-1, INPUT, NONE);	/* TSP_I2C_SCL */
-		PIN_SLP(gpp4-2, INPUT, NONE);	/* PROXY_SDA_1P8 */
-		PIN_SLP(gpp4-3, INPUT, NONE);	/* PROXY_SCL_1P8 */
+		PIN_SLP(gpp4-2, INPUT, NONE);	/* SENSOR_SDA_1P8 */
+		PIN_SLP(gpp4-3, INPUT, NONE);	/* SENSOR_SCL_1P8 */
 		PIN_SLP(gpp4-4, INPUT, NONE);	/* 6AXIS_SDA_1P8 */
 		PIN_SLP(gpp4-5, INPUT, NONE);	/* 6AXIS_SCL_1P8 */
 
@@ -131,19 +127,24 @@
 		PIN_SLP(gpp7-1, INPUT, NONE);	/* GRIP_I2C_SCL */
 
 		PIN_SLP(gpp8-1, PREV, NONE);	/* SENSOR_LDO_3P3_EN */
-		PIN_SLP(gpg0-1, PREV, NONE);	/* TORCH_SET */
-		PIN_SLP(gpg1-0, PREV, NONE);	/* LCD_BL_EN */
+		
+		PIN_SLP(gpg0-2, OUT0, DOWN);	/* MOT_LDO */
 		PIN_SLP(gpg1-1, PREV, NONE);	/* PMIC_WRSTBI */
-		PIN_SLP(gpg1-2, PREV, NONE);	/* LCD_EN_3P0 */
-		PIN_SLP(gpg1-6, PREV, NONE);	/* GRIP_EN */
+		PIN_SLP(gpg1-3, PREV, NONE);	/* GRIP_EN */
+
+		PIN_SLP(gpg1-2, PREV, NONE);	/* LCD_3P0_EN */
+		PIN_SLP(gpg1-4, PREV, NONE);	/* LCD_1P8_EN */
+		PIN_SLP(gpg1-7, PREV, NONE);	/* TORCH_SET */
 
 		PIN_SLP(gpg2-0, PREV, NONE);	/* MLCD_RST */
-
-		PIN_SLP(gpg2-3, INPUT, DOWN);	/* NC */
+		PIN_SLP(gpg2-1, PREV, NONE);	/* TSP_LDO_EN */
+		PIN_SLP(gpg2-2, PREV, NONE);	/* NFC_DET */
+		PIN_SLP(gpg2-3, INPUT, NONE);	/* SUB_REV1 */
 		PIN_SLP(gpg2-5, INPUT, DOWN);	/* RCAM2_RST */
-		PIN_SLP(gpg2-6, INPUT, DOWN);	/* NC */
-		PIN_SLP(gpg2-7, OUT0, DOWN);	/* CAM_FLASH_EN */
+		PIN_SLP(gpg2-6, INPUT, NONE);	/* SUB_REV2 */
+		PIN_SLP(gpg2-7, PREV, NONE);	/* FLASH_SET */
 
+		PIN_SLP(gpg3-0, INPUT, NONE);	/* OCTA_CON_DET */
 		PIN_SLP(gpg3-1, PREV, NONE);	/* SENSOR_LDO_1P8_EN */
 		PIN_SLP(gpg3-2, PREV, NONE);	/* BTP_RST_N */
 		PIN_SLP(gpg3-3, PREV, NONE);	/* BTP_LDO_EN */
@@ -152,9 +153,7 @@
 		PIN_SLP(gpg3-7, INPUT, NONE);	/* HW_REV0 */
 
 		PIN_SLP(gpg4-0, INPUT, NONE);	/* HW_REV1 */
-		PIN_SLP(gpg4-1, INPUT, DOWN);	/* NC */
-		PIN_SLP(gpg3-6, INPUT, NONE);	/* HW_REV2 */
-		PIN_SLP(gpg1-3, INPUT, NONE);	/* SUB_REV */
+		PIN_SLP(gpg4-1, INPUT, NONE);	/* HW_REV2 */
 
 		PIN_SLP(gpc1-0, INPUT, DOWN);	/* FCAM_I2C_SDA */
 		PIN_SLP(gpc1-1, INPUT, DOWN);	/* FCAM_I2C_SCL */
@@ -164,7 +163,9 @@
 		PIN_SLP(gpc1-5, INPUT, DOWN);	/* RCAM2_RCAM3_I2C_SCL */
 		PIN_SLP(gpc1-6, INPUT, DOWN);	/* CAM_EEP_I2C_SDA */
 		PIN_SLP(gpc1-7, INPUT, DOWN);	/* CAM_EEP_I2C_SCL */
-
+		
+		PIN_SLP(gpc2-0, INPUT, NONE);	/* CAM_PMIC_SDA_1P8 */
+		PIN_SLP(gpc2-1, INPUT, NONE);	/* CAM_PMIC_SCL_1P8 */		
 		PIN_SLP(gpc2-2, INPUT, NONE);	/* NFC_SDA_1P8 */
 		PIN_SLP(gpc2-3, INPUT, NONE);	/* NFC_SCL_1P8 */
 	};
