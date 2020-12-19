@@ -43,11 +43,15 @@ CONFIG_BUILDTIME_EXTABLE_SORT=y
 CONFIG_INIT_ENV_ARG_LIMIT=32
 CONFIG_CROSS_COMPILE=""
 # CONFIG_COMPILE_TEST is not set
+<<<<<<< HEAD:arch/arm64/configs/exynos7885-a20_219_defconfig
 <<<<<<< HEAD
 CONFIG_LOCALVERSION="-physwizz_2.20"
 =======
 CONFIG_LOCALVERSION="-physwizz_2.19"
 >>>>>>> bb0ad3d740a4fcbf5d1466c231b016d8bbeae950
+=======
+CONFIG_LOCALVERSION="-physwizz-v1.60"
+>>>>>>> fd71daf145... Overclocked GPU using DTBO originally authored by Geckyn and modified by Chateu." --author="geckyn <geckyn@gmail.com>:arch/arm64/configs/exynos7885-a20e_defconfig
 CONFIG_LOCALVERSION_AUTO=y
 CONFIG_DEFAULT_HOSTNAME="(none)"
 CONFIG_SWAP=y

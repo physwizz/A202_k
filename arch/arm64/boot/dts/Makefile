@@ -7,6 +7,7 @@ dtbo-y += exynos/dtbo/exynos7884B-a20e_eur_open_03.dtbo
 >>>>>>> 58964d1fa... a20: dtbo: configure dtbo generation
 
 dtb-$(CONFIG_MACH_EXYNOS7885_A20_GLOBAL) := \
+<<<<<<< HEAD
 	exynos/dtbo/exynos7884B-a20_cis_ser_00.dtbo \
 	exynos/dtbo/exynos7884B-a20_cis_ser_01.dtbo \
 	exynos/dtbo/exynos7884B-a20_cis_ser_03.dtbo \
@@ -24,6 +25,9 @@ dtb-$(CONFIG_MACH_EXYNOS7885_A20_GLOBAL) := \
 	exynos/dtbo/exynos7884B-a20_swa_open_00.dtbo \
 	exynos/dtbo/exynos7884B-a20_swa_open_01.dtbo \
 	exynos/dtbo/exynos7884B-a20_swa_open_03.dtbo
+=======
+    exynos/dtbo/exynos7884b-mali.dtsi
+>>>>>>> fd71daf145... Overclocked GPU using DTBO originally authored by Geckyn and modified by Chateu." --author="geckyn <geckyn@gmail.com>
 
 ifeq ($(CONFIG_MACH_EXYNOS7885_A20_GLOBAL),y)
 always         := $(dtb-y) $(dtbo-y)
