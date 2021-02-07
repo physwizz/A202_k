@@ -43,7 +43,11 @@ CONFIG_BUILDTIME_EXTABLE_SORT=y
 CONFIG_INIT_ENV_ARG_LIMIT=32
 CONFIG_CROSS_COMPILE=""
 # CONFIG_COMPILE_TEST is not set
+<<<<<<< HEAD
 CONFIG_LOCALVERSION="-physwizz_v1.70"
+=======
+CONFIG_LOCALVERSION="physwizz-2.35"
+>>>>>>> 7eebe07f1... Update dtbo building
 CONFIG_LOCALVERSION_AUTO=y
 CONFIG_DEFAULT_HOSTNAME="(none)"
 CONFIG_SWAP=y
@@ -360,6 +364,16 @@ CONFIG_ARCH_EXYNOS7=y
 # CONFIG_ZONE_MOVABLE is not set
 
 #
+<<<<<<< HEAD
+=======
+CONFIG_MACH_EXYNOS7885_A20_GLOBAL=y
+
+CONFIG_BUILD_ARM64_DT_OVERLAY=y
+
+
+
+
+>>>>>>> 7eebe07f1... Update dtbo building
 # Bus support
 #
 # CONFIG_PCI is not set
