@@ -1,10 +1,8 @@
 # SPDX-License-Identifier: GPL-2.0
 dtb-y += exynos/dtbo/exynos7885.dtb
-<<<<<<< HEAD
 dtbo-y += exynos/dtbo/exynos7884B-a20e_eur_open_00.dtbo
 dtbo-y += exynos/dtbo/exynos7884B-a20e_eur_open_03.dtbo
-=======
->>>>>>> 58964d1fa... a20: dtbo: configure dtbo generation
+
 
 dtb-$(CONFIG_MACH_EXYNOS7885_A20_GLOBAL) := \
 	exynos/dtbo/exynos7884B-a20_cis_ser_00.dtbo \
